@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27428.2015
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DirectX11Tutorial", "DirectX11Tutorial\DirectX11Tutorial.vcxproj", "{4CB9886C-07A5-4F6B-854B-3F13C64FB8BE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4CB9886C-07A5-4F6B-854B-3F13C64FB8BE}.Debug|x64.ActiveCfg = Debug|x64
+		{4CB9886C-07A5-4F6B-854B-3F13C64FB8BE}.Debug|x64.Build.0 = Debug|x64
+		{4CB9886C-07A5-4F6B-854B-3F13C64FB8BE}.Debug|x86.ActiveCfg = Debug|Win32
+		{4CB9886C-07A5-4F6B-854B-3F13C64FB8BE}.Debug|x86.Build.0 = Debug|Win32
+		{4CB9886C-07A5-4F6B-854B-3F13C64FB8BE}.Release|x64.ActiveCfg = Release|x64
+		{4CB9886C-07A5-4F6B-854B-3F13C64FB8BE}.Release|x64.Build.0 = Release|x64
+		{4CB9886C-07A5-4F6B-854B-3F13C64FB8BE}.Release|x86.ActiveCfg = Release|Win32
+		{4CB9886C-07A5-4F6B-854B-3F13C64FB8BE}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FC2CDA46-A4E0-4D14-84E7-CA48D4C47E12}
+	EndGlobalSection
+EndGlobal
