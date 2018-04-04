@@ -147,6 +147,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="AlignedAllocationPolicy.h" />
+    <ClInclude Include="D3DClass.h" />
     <ClInclude Include="DirectX11Tutorial.h" />
     <ClInclude Include="DxDefine.h" />
     <ClInclude Include="GraphicsClass.h" />
@@ -157,6 +159,7 @@
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="D3DClass.cpp" />
     <ClCompile Include="DirectX11Tutorial.cpp" />
     <ClCompile Include="GraphicsClass.cpp" />
     <ClCompile Include="InputClass.cpp" />
