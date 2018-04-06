@@ -2,7 +2,8 @@
 #include "D3DClass.h"
 #include "CameraClass.h"
 #include "ModelClass.h"
-#include "ColorShaderClass.h"
+//#include "ColorShaderClass.h"
+#include "TextureShaderClass.h"
 #include "GraphicsClass.h"
 
 GraphicsClass::GraphicsClass()
@@ -42,7 +43,7 @@ bool GraphicsClass::Initialize(int screenWidth, int screenHeight, HWND hwnd)
 	}
 
 	// Ä«¸Ş¶ó Æ÷Áö¼Ç ¼³Á¤
-	m_Camera->SetPosition(0.0f, 0.0f, -5.0f);
+	m_Camera->SetPosition(0.0f, 0.0f, -30.0f);
 
 	// ¸ğµ¨ °´Ã¼ »ı¼º
 	m_Model = new ModelClass;
@@ -52,23 +53,37 @@ bool GraphicsClass::Initialize(int screenWidth, int screenHeight, HWND hwnd)
 	}
 
 	// ¸ğµ¨ °´Ã¼ ÃÊ±âÈ­
-	if (!m_Model->Initialize(m_Direct3D->GetDevice()))
+	if (!m_Model->Initialize(m_Direct3D->GetDevice(), m_Direct3D->GetDeviceContext(),(char*)"../DirectX11Tutorial/data/stone01.tga"))
 	{
 		MessageBox(hwnd, L"Could not Initialize the model object.", L"Error", MB_OK);
 		return false;
 	}
 
 	// ColorShader °´Ã¼ »ı¼º
-	m_ColorShader = new ColorShaderClass;
-	if (!m_ColorShader)
+	//m_ColorShader = new ColorShaderClass;
+	//if (!m_ColorShader)
+	//{
+	//	return false;
+	//}
+
+	//// ColorShader °´Ã¼ ÃÊ±âÈ­
+	//if (!m_ColorShader->Initialize(m_Direct3D->GetDevice(), hwnd))
+	//{
+	//	MessageBox(hwnd, L"Could not Initialize the colorShader object.", L"Error", MB_OK);
+	//	return false;
+	//}
+
+	// TextureShader °´Ã¼ »ı¼º
+	m_TextureShader = new TextureShaderClass;
+	if (!m_TextureShader)
 	{
 		return false;
 	}
 
-	// ColorShader °´Ã¼ ÃÊ±âÈ­
-	if (!m_ColorShader->Initialize(m_Direct3D->GetDevice(), hwnd))
+	// TextureShader °´Ã¼ ÃÊ±âÈ­
+	if (!m_TextureShader->Initialize(m_Direct3D->GetDevice(),hwnd))
 	{
-		MessageBox(hwnd, L"Could not Initialize the colorShader object.", L"Error", MB_OK);
+		MessageBox(hwnd, L"Could not Initialize the Texture Shader object.", L"Error", MB_OK);
 		return false;
 	}
 
@@ -78,11 +93,19 @@ bool GraphicsClass::Initialize(int screenWidth, int screenHeight, HWND hwnd)
 void GraphicsClass::Shutdown()
 {
 	// ColorShader °´Ã¼ ¹İÈ¯
-	if (m_ColorShader)
+	//if (m_ColorShader)
+	//{
+	//	m_ColorShader->Shutdown();
+	//	delete m_ColorShader;
+	//	m_ColorShader = 0;
+	//}
+
+	// TextureShader °´Ã¼ ¹İÈ¯
+	if (m_TextureShader)
 	{
-		m_ColorShader->Shutdown();
-		delete m_ColorShader;
-		m_ColorShader = 0;
+		m_TextureShader->Shutdown();
+		delete m_TextureShader;
+		m_TextureShader = 0;
 	}
 
 	// ¸ğµ¨ °´Ã¼ ¹İÈ¯
@@ -134,8 +157,15 @@ bool GraphicsClass::Render()
 
 
 	// »ö»ó ½¦ÀÌ´õ¸¦ »ç¿ëÇÏ¿© ¸ğµ¨À» ·»´õ¸µ
-	if (!m_ColorShader->Render(m_Direct3D->GetDeviceContext(), m_Model->GetIndexCount(),
+	/*if (!m_ColorShader->Render(m_Direct3D->GetDeviceContext(), m_Model->GetIndexCount(),
 		worldMatrix, viewMatrix, projectionMatrix))
+	{
+		return false;
+	}*/
+
+	// ÅØ½ºÃÄ ½¦ÀÌ´õ¸¦ »ç¿ëÇÏ¿© ¸ğµ¨ ·»´õ¸µ
+	if (!m_TextureShader->Render(m_Direct3D->GetDeviceContext(), m_Model->GetIndexCount(),
+		worldMatrix, viewMatrix, projectionMatrix, m_Model->GetTexture()))
 	{
 		return false;
 	}

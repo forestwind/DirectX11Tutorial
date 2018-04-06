@@ -54,6 +54,12 @@
     <ClInclude Include="CameraClass.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="TextureShaderClass.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="TextureClass.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -83,6 +89,12 @@
     <ClCompile Include="CameraClass.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="TextureShaderClass.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="TextureClass.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="DirectX11Tutorial.rc">
@@ -102,6 +114,12 @@
       <Filter>소스 파일</Filter>
     </None>
     <None Include="Color.ps">
+      <Filter>소스 파일</Filter>
+    </None>
+    <None Include="Texture.vs">
+      <Filter>소스 파일</Filter>
+    </None>
+    <None Include="Texture.ps">
       <Filter>소스 파일</Filter>
     </None>
   </ItemGroup>
